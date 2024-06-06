@@ -1,14 +1,18 @@
-$grey: #d9d9d9;
+@use 'stylefooter';
+@use 'variables' as vars;
 
 html, body {
     height: 100%;
     margin: 0;
+    background-color: vars.$main-background;
+    font-family: sans-serif;
 }
 
 body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background-color: vars.$main-background;
 }
 
 header {
@@ -22,14 +26,15 @@ header {
         width: 70%;
         padding: 14px;
         border-radius: 25px;
-        background: #f6f6f6;
+        background: vars.$light-green;
+        outline: vars.$dark-green solid 3px;
 
         input {
             margin: 5px 20px;
             width: 100%;
-            font-size: 20px;
+            font-size: 26px;
             font-family: sans-serif;
-            color: #333333;
+            color: vars.$dark-brown;
             background: transparent;
             border: none;
             outline: none;
@@ -47,24 +52,53 @@ main {
     h2 {
         display: flex;
         justify-content: center;
+        color: vars.$dark-brown;
+        font-size: 36px;
     }
 
     .recommendation_Box {
-        li {
-            background-color: $grey;
-            margin: 10px 60px;
-            padding: 30px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        button {
+            width: 690px; // Set button width
+            height: auto; // Set button height
+            margin: 10px 0; // Adjust margin for spacing
+            background-color: vars.$light-green;
+            color: vars.$dark-brown;
+            border: none;
+            cursor: pointer;
+            outline: vars.$dark-green solid 3px;
+            font-size: 20px;
+            text-align: left; // Align text to the left
+            padding: 10px; // Add padding for better readability
+
+            .song-details {
+                display: none; // Hide the song details by default
+            }
+
+            &:hover .song-details {
+                display: block; // Show song details on hover
+            }
+
+            h3{
+                font-weight: 100;
+                margin-top: 0;
+            }
+
+            li {
+                list-style: none;
+            }
+
+            // Adjust styles for artistName and albumTitle
+            #artistName,
+            #albumTitle {
+                display: inline; // Display inline
+                margin-right: 10px; // Add some space between artistName and albumTitle
+            }
         }
     }
-}
-
-footer {
-    height: 100px;
-    background-color: $grey;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-shrink: 0; /* Prevent the footer from shrinking */
 }
 
 // Responsive styles
@@ -83,16 +117,10 @@ footer {
 
     .recommendations {
         .recommendation_Box {
-            li {
-                margin: 10px 20px;
-                padding: 20px 0;
+            button {
+                width: 90%; /* Adjust button width for smaller screens */
+                font-size: 16px;
             }
         }
-    }
-
-    footer {
-        height: 80px; /* Slightly smaller height for mobile */
-        font-size: 14px; /* Adjust font size for better readability on small screens */
-        padding: 10px; /* Add some padding for better touch targets */
     }
 }

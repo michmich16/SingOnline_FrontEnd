@@ -1,12 +1,32 @@
+footer {
+  height: 100px;
+  background-color: #E9EDC9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0; /* Prevent the footer from shrinking */
+  margin-top: 3rem;
+}
+
+@media (max-width: 600px) {
+  footer {
+    height: 80px; /* Slightly smaller height for mobile */
+    font-size: 14px; /* Adjust font size for better readability on small screens */
+    padding: 10px; /* Add some padding for better touch targets */
+  }
+}
 html, body {
   height: 100%;
   margin: 0;
+  background-color: #FEFAE0;
+  font-family: sans-serif;
 }
 
 body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background-color: #FEFAE0;
 }
 
 header {
@@ -20,14 +40,15 @@ header .search_Field {
   width: 70%;
   padding: 14px;
   border-radius: 25px;
-  background: #f6f6f6;
+  background: #E9EDC9;
+  outline: #CCD5AE solid 3px;
 }
 header .search_Field input {
   margin: 5px 20px;
   width: 100%;
-  font-size: 20px;
+  font-size: 26px;
   font-family: sans-serif;
-  color: #333333;
+  color: #D4A373;
   background: transparent;
   border: none;
   outline: none;
@@ -42,20 +63,44 @@ main {
 .recommendations h2 {
   display: flex;
   justify-content: center;
+  color: #D4A373;
+  font-size: 36px;
 }
-.recommendations .recommendation_Box li {
-  background-color: #d9d9d9;
-  margin: 10px 60px;
-  padding: 30px 0;
-}
-
-footer {
-  height: 100px;
-  background-color: #d9d9d9;
+.recommendations .recommendation_Box {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  flex-shrink: 0; /* Prevent the footer from shrinking */
+}
+.recommendations .recommendation_Box button {
+  width: 690px;
+  height: auto;
+  margin: 10px 0;
+  background-color: #E9EDC9;
+  color: #D4A373;
+  border: none;
+  cursor: pointer;
+  outline: #CCD5AE solid 3px;
+  font-size: 20px;
+  text-align: left;
+  padding: 10px;
+}
+.recommendations .recommendation_Box button .song-details {
+  display: none;
+}
+.recommendations .recommendation_Box button:hover .song-details {
+  display: block;
+}
+.recommendations .recommendation_Box button h3 {
+  font-weight: 100;
+  margin-top: 0;
+}
+.recommendations .recommendation_Box button li {
+  list-style: none;
+}
+.recommendations .recommendation_Box button #artistName,
+.recommendations .recommendation_Box button #albumTitle {
+  display: inline;
+  margin-right: 10px;
 }
 
 @media (max-width: 600px) {
@@ -67,13 +112,8 @@ footer {
     font-size: 16px;
     margin: 5px 10px;
   }
-  .recommendations .recommendation_Box li {
-    margin: 10px 20px;
-    padding: 20px 0;
-  }
-  footer {
-    height: 80px; /* Slightly smaller height for mobile */
-    font-size: 14px; /* Adjust font size for better readability on small screens */
-    padding: 10px; /* Add some padding for better touch targets */
+  .recommendations .recommendation_Box button {
+    width: 90%; /* Adjust button width for smaller screens */
+    font-size: 16px;
   }
 }/*# sourceMappingURL=main.css.map */
