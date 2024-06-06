@@ -6,10 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sing-Online</title>
     <link rel="stylesheet" href="./assets/css/main.css">
+    <script src="./assets/js/main.js" defer></script>
 </head>
 
 <body>
     <header>
+        <nav class="navbar">
+            <button class="nav-item">Home</button>
+            <button class="nav-item">About Us</button>
+            <button class="nav-item">Request Song</button>
+            <button class="nav-item">Contact</button>
+        </nav>
         <div class="search_Field">
             <input type="text" placeholder="Search..">
         </div>
@@ -18,35 +25,35 @@
         <div class="recommendations">
             <h2>Recommended</h2>
             <div class="recommendation_Box">
-                <button type="button">
+                <button type="button" onclick="clearMainContent()">
                     <h3>Song 1</h3>
                     <li>
                         <p id="artistName">Artist</p>
                         <p id="albumTitle">Album Title</p>
                     </li>
                 </button>
-                <button type="button">
+                <button type="button" onclick="clearMainContent()">
                     <h3>Song 2</h3>
                     <li>
                         <p id="artistName">Artist</p>
                         <p id="albumTitle">Album Title</p>
                     </li>
                 </button>
-                <button type="button">
+                <button type="button" onclick="clearMainContent()">
                     <h3>Song 3</h3>
                     <li>
                         <p id="artistName">Artist</p>
                         <p id="albumTitle">Album Title</p>
                     </li>
                 </button>
-                <button type="button">
+                <button type="button" onclick="clearMainContent()">
                     <h3>Song 4</h3>
                     <li>
                         <p id="artistName">Artist</p>
                         <p id="albumTitle">Album Title</p>
                     </li>
                 </button>
-                <button type="button">
+                <button type="button" onclick="clearMainContent()">
                     <h3>Song 5</h3>
                     <li>
                         <p id="artistName">Artist</p>

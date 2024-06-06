@@ -1,7 +1,8 @@
 @use 'stylefooter';
 @use 'variables' as vars;
 
-html, body {
+html,
+body {
     height: 100%;
     margin: 0;
     background-color: vars.$main-background;
@@ -17,17 +18,49 @@ body {
 
 header {
     display: flex;
-    justify-content: center;
-    margin-top: 2rem;
+    flex-direction: column;
+    align-items: center;
+    // margin-top: 2rem;
+
+    .navbar {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        background-color: vars.$light-green;
+        padding: 20px 0;
+        margin: 0 1rem;
+
+
+
+        .nav-item {
+            background: none;
+            border: none;
+            cursor: pointer;
+            outline: none;
+            font-size: 24px;
+            padding: 0 30px;
+            align-items: center;
+            color: vars.$dark-brown;
+        
+            // vælger elements nummer 2, 3, 4 
+            &:nth-child(n+2) {
+                border-left: 2px solid vars.$dark-brown;
+            }
+        }
+        
+    }
 
     .search_Field {
         display: flex;
         justify-content: center;
-        width: 70%;
+        align-items: center;
+        width: 50%;
         padding: 14px;
-        border-radius: 25px;
+        border-radius: 50px;
         background: vars.$light-green;
         outline: vars.$dark-green solid 3px;
+        position: relative;
+        margin: 1rem;
 
         input {
             margin: 5px 20px;
@@ -41,6 +74,7 @@ header {
         }
     }
 }
+
 
 main {
     flex: 1;
@@ -82,7 +116,7 @@ main {
                 display: block; // Show song details on hover
             }
 
-            h3{
+            h3 {
                 font-weight: 100;
                 margin-top: 0;
             }
@@ -107,7 +141,7 @@ main {
         .search_Field {
             width: 90%;
             padding: 10px;
-            
+
             input {
                 font-size: 16px;
                 margin: 5px 10px;
@@ -118,7 +152,8 @@ main {
     .recommendations {
         .recommendation_Box {
             button {
-                width: 90%; /* Adjust button width for smaller screens */
+                width: 90%;
+                /* Adjust button width for smaller screens */
                 font-size: 16px;
             }
         }
