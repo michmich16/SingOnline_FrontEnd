@@ -38,12 +38,26 @@ header {
 header .navbar {
   display: flex;
   width: 100%;
-  justify-content: center;
+  justify-content: space-between;
   background-color: #E9EDC9;
   padding: 20px 0;
   margin: 0 1rem;
+  position: relative;
 }
-header .navbar .nav-item {
+header .hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  font-size: 24px;
+}
+header .nav-items {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+header .nav-items .nav-item {
   background: none;
   border: none;
   cursor: pointer;
@@ -53,8 +67,14 @@ header .navbar .nav-item {
   align-items: center;
   color: #D4A373;
 }
-header .navbar .nav-item:nth-child(n+2) {
+header .nav-items .nav-item:nth-child(n+2) {
   border-left: 2px solid #D4A373;
+}
+header.show .nav-items {
+  display: flex;
+}
+header.show .hamburger {
+  display: none;
 }
 header .search_Field {
   display: flex;
@@ -128,7 +148,35 @@ main {
   margin-right: 10px;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 900px) {
+  header .navbar .hamburger {
+    display: block;
+  }
+  header .navbar .nav-items {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #E9EDC9;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 20px;
+    z-index: 1000;
+    overflow-y: auto;
+  }
+  header .navbar .nav-items .nav-item {
+    padding: 20px 0;
+    text-align: center;
+    border: none;
+  }
+  header .navbar.show .nav-items {
+    display: flex;
+  }
+  header .navbar.show .hamburger {
+    display: flex;
+  }
   header .search_Field {
     width: 90%;
     padding: 10px;
@@ -139,7 +187,6 @@ main {
   }
   .recommendations .recommendation_Box button {
     width: 90%;
-    /* Adjust button width for smaller screens */
     font-size: 16px;
   }
 }/*# sourceMappingURL=main.css.map */

@@ -20,17 +20,30 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    // margin-top: 2rem;
 
     .navbar {
         display: flex;
         width: 100%;
-        justify-content: center;
+        justify-content: space-between;
         background-color: vars.$light-green;
         padding: 20px 0;
         margin: 0 1rem;
+        position: relative;
+    }
 
+    .hamburger {
+        display: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+        outline: none;
+        font-size: 24px;
+    }
 
+    .nav-items {
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
         .nav-item {
             background: none;
@@ -41,13 +54,19 @@ header {
             padding: 0 30px;
             align-items: center;
             color: vars.$dark-brown;
-        
-            // vælger elements nummer 2, 3, 4 
+
             &:nth-child(n+2) {
                 border-left: 2px solid vars.$dark-brown;
             }
         }
-        
+    }
+
+    &.show .nav-items {
+        display: flex;
+    }
+
+    &.show .hamburger {
+        display: none;
     }
 
     .search_Field {
@@ -75,7 +94,6 @@ header {
     }
 }
 
-
 main {
     flex: 1;
     display: flex;
@@ -96,24 +114,24 @@ main {
         align-items: center;
 
         button {
-            width: 690px; // Set button width
-            height: auto; // Set button height
-            margin: 10px 0; // Adjust margin for spacing
+            width: 690px;
+            height: auto;
+            margin: 10px 0;
             background-color: vars.$light-green;
             color: vars.$dark-brown;
             border: none;
             cursor: pointer;
             outline: vars.$dark-green solid 3px;
             font-size: 20px;
-            text-align: left; // Align text to the left
-            padding: 10px; // Add padding for better readability
+            text-align: left;
+            padding: 10px;
 
             .song-details {
-                display: none; // Hide the song details by default
+                display: none;
             }
 
             &:hover .song-details {
-                display: block; // Show song details on hover
+                display: block;
             }
 
             h3 {
@@ -125,19 +143,53 @@ main {
                 list-style: none;
             }
 
-            // Adjust styles for artistName and albumTitle
             #artistName,
             #albumTitle {
-                display: inline; // Display inline
-                margin-right: 10px; // Add some space between artistName and albumTitle
+                display: inline;
+                margin-right: 10px;
             }
         }
     }
 }
 
-// Responsive styles
-@media (max-width: 600px) {
+// Responsive styles for tablet and mobile versions
+@media (max-width: 900px) {
     header {
+        .navbar {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-items {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: vars.$light-green;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                padding: 20px;
+                z-index: 1000;
+                overflow-y: auto;
+
+                .nav-item {
+                    padding: 20px 0;
+                    text-align: center;
+                    border: none;
+                }
+            }
+
+            &.show .nav-items {
+                display: flex;
+            }
+
+            &.show .hamburger {
+                 display: flex;
+            }
+        }
+
         .search_Field {
             width: 90%;
             padding: 10px;
@@ -153,7 +205,6 @@ main {
         .recommendation_Box {
             button {
                 width: 90%;
-                /* Adjust button width for smaller screens */
                 font-size: 16px;
             }
         }

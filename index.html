@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,14 +7,16 @@
     <link rel="stylesheet" href="./assets/css/main.css">
     <script src="./assets/js/main.js" defer></script>
 </head>
-
 <body>
     <header>
         <nav class="navbar">
-            <button class="nav-item">Home</button>
-            <button class="nav-item">About Us</button>
-            <button class="nav-item">Request Song</button>
-            <button class="nav-item">Contact</button>
+            <button class="hamburger" onclick="toggleMenu()">☰</button>
+            <div class="nav-items">
+                <button class="nav-item">Home</button>
+                <button class="nav-item">About Us</button>
+                <button class="nav-item">Request Song</button>
+                <button class="nav-item">Contact</button>
+            </div>
         </nav>
         <div class="search_Field">
             <input type="text" placeholder="Search..">
@@ -33,28 +34,21 @@
                     </li>
                 </button>
                 <button type="button" onclick="clearMainContent()">
-                    <h3>Song 2</h3>
+                    <h3>Song 1</h3>
                     <li>
                         <p id="artistName">Artist</p>
                         <p id="albumTitle">Album Title</p>
                     </li>
                 </button>
                 <button type="button" onclick="clearMainContent()">
-                    <h3>Song 3</h3>
+                    <h3>Song 1</h3>
                     <li>
                         <p id="artistName">Artist</p>
                         <p id="albumTitle">Album Title</p>
                     </li>
                 </button>
                 <button type="button" onclick="clearMainContent()">
-                    <h3>Song 4</h3>
-                    <li>
-                        <p id="artistName">Artist</p>
-                        <p id="albumTitle">Album Title</p>
-                    </li>
-                </button>
-                <button type="button" onclick="clearMainContent()">
-                    <h3>Song 5</h3>
+                    <h3>Song 1</h3>
                     <li>
                         <p id="artistName">Artist</p>
                         <p id="albumTitle">Album Title</p>
@@ -66,6 +60,11 @@
     <footer>
         Global Footer
     </footer>
+    <script defer>
+        function toggleMenu() {
+            const navItems = document.querySelector('.nav-items');
+            navItems.classList.toggle('show');
+        }
+    </script>
 </body>
-
 </html>
