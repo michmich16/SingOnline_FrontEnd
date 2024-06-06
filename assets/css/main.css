@@ -1,3 +1,14 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 header {
   display: flex;
   justify-content: center;
@@ -22,6 +33,12 @@ header .search_Field input {
   outline: none;
 }
 
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
 .recommendations h2 {
   display: flex;
   justify-content: center;
@@ -35,4 +52,28 @@ header .search_Field input {
 footer {
   height: 100px;
   background-color: #d9d9d9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0; /* Prevent the footer from shrinking */
+}
+
+@media (max-width: 600px) {
+  header .search_Field {
+    width: 90%;
+    padding: 10px;
+  }
+  header .search_Field input {
+    font-size: 16px;
+    margin: 5px 10px;
+  }
+  .recommendations .recommendation_Box li {
+    margin: 10px 20px;
+    padding: 20px 0;
+  }
+  footer {
+    height: 80px; /* Slightly smaller height for mobile */
+    font-size: 14px; /* Adjust font size for better readability on small screens */
+    padding: 10px; /* Add some padding for better touch targets */
+  }
 }/*# sourceMappingURL=main.css.map */
