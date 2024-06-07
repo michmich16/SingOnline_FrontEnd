@@ -63,9 +63,6 @@ header .nav-items .nav-item {
   align-items: center;
   color: #D4A373;
 }
-header .nav-items .nav-item:nth-child(n+2) {
-  border-left: 2px solid #D4A373;
-}
 header.show .nav-items {
   display: flex;
 }
@@ -99,6 +96,13 @@ main {
   flex: 1;
   display: flex;
   flex-direction: column;
+}
+main span {
+  color: #D4A373;
+  text-align: center;
+}
+main span p {
+  text-align: center;
 }
 
 .recommendations h2 {

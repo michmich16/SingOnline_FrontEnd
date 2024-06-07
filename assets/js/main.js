@@ -69,7 +69,7 @@ async function displayLyrics(song) {
     const lyrics = "https://gxxdmpccinfzavamuyix.supabase.co/rest/v1/songs/lyrics";
 
     const mainContent = document.querySelector('main');
-    const lyricsElement = document.createElement("div");
+    const lyricsElement = document.createElement('span');
     const lyricsParagraphs = song.lyrics.split('\n').map(line => `<p>${line}</p>`).join('');
     lyricsElement.innerHTML = `
         <h2>${song.title}</h2>

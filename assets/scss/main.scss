@@ -54,9 +54,6 @@ header {
             align-items: center;
             color: vars.$dark-brown;
 
-            &:nth-child(n+2) {
-                border-left: 2px solid vars.$dark-brown;
-            }
         }
     }
 
@@ -97,6 +94,14 @@ main {
     flex: 1;
     display: flex;
     flex-direction: column;
+    span{
+        color: vars.$dark-brown;
+        text-align: center;
+
+        p{
+            text-align: center;
+        }
+    }
 }
 
 .recommendations {
