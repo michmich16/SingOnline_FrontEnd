@@ -38,7 +38,7 @@ header {
 header .navbar {
   display: flex;
   width: 100%;
-  justify-content: space-between;
+  justify-content: center;
   background-color: #E9EDC9;
   padding: 20px 0;
   margin: 0 1rem;
