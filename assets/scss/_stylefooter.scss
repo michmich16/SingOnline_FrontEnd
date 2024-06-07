@@ -8,6 +8,8 @@ footer {
     align-items: center;
     flex-shrink: 0; /* Prevent the footer from shrinking */
     margin-top: 3rem;
+    text-align: center; // Center the footer text for better appearance
+    padding: 10px 0; // Add padding to the footer
 }
 
 @media (max-width: 600px) {

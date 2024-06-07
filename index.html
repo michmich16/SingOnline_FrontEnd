@@ -10,9 +10,8 @@
 <body>
     <header>
         <nav class="navbar">
-            <button class="hamburger" onclick="toggleMenu()">☰</button>
             <div class="nav-items">
-                <button class="nav-item">Home</button>
+                <button class="nav-item" onclick="reloadPage()">Home</button>
                 <button class="nav-item">About Us</button>
                 <button class="nav-item">Request Song</button>
                 <button class="nav-item">Contact</button>
@@ -60,11 +59,6 @@
     <footer>
         Global Footer
     </footer>
-    <script defer>
-        function toggleMenu() {
-            const navItems = document.querySelector('.nav-items');
-            navItems.classList.toggle('show');
-        }
-    </script>
+
 </body>
 </html>

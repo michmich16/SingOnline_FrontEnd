@@ -1,15 +1,23 @@
+// import variables here
 @use 'stylefooter';
 @use 'variables' as vars;
+
+// mixin here
+@mixin reset-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
 
 html,
 body {
     height: 100%;
-    margin: 0;
     background-color: vars.$main-background;
     font-family: sans-serif;
 }
 
 body {
+    @include reset-list;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -29,15 +37,6 @@ header {
         padding: 20px 0;
         margin: 0 1rem;
         position: relative;
-    }
-
-    .hamburger {
-        display: none;
-        background: none;
-        border: none;
-        cursor: pointer;
-        outline: none;
-        font-size: 24px;
     }
 
     .nav-items {
@@ -114,7 +113,8 @@ main {
         align-items: center;
 
         button {
-            width: 690px;
+            width: 90%; // Adjust width for responsiveness
+            max-width: 690px; // Ensure it doesn't exceed the original width
             height: auto;
             margin: 10px 0;
             background-color: vars.$light-green;
@@ -152,61 +152,88 @@ main {
     }
 }
 
-// Responsive styles for tablet and mobile versions
-@media (max-width: 900px) {
+
+
+/* Media Queries */
+@media (max-width: 768px) {
+
+    // Tablet
     header {
         .navbar {
-            .hamburger {
-                display: block;
-            }
+            flex-direction: column;
+            align-items: center;
 
-            .nav-items {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-                background-color: vars.$light-green;
-                position: fixed;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                padding: 20px;
-                z-index: 1000;
-                overflow-y: auto;
-
-                .nav-item {
-                    padding: 20px 0;
-                    text-align: center;
-                    border: none;
-                }
-            }
-
-            &.show .nav-items {
-                display: flex;
-            }
-
-            &.show .hamburger {
-                 display: flex;
-            }
         }
 
+        .nav-items {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .nav-item {
+            padding: 10px 0;
+            font-size: 20px;
+        }
+
+
         .search_Field {
-            width: 90%;
+            width: 80%;
             padding: 10px;
 
             input {
-                font-size: 16px;
-                margin: 5px 10px;
+                font-size: 20px;
             }
         }
     }
 
-    .recommendations {
-        .recommendation_Box {
-            button {
-                width: 90%;
-                font-size: 16px;
+    .recommendations h2 {
+        font-size: 28px;
+    }
+
+    .recommendation_Box button {
+        width: 95%;
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    // Mobile
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-items {
+        flex-direction: column;
+        align-items: center;
+
+
+        .nav-item {
+            padding: 10px 0;
+            font-size: 18px;
+
+            &:nth-child(n+2) {
+                border-left: none;
             }
         }
+    }
+
+    .search_Field {
+        width: 90%;
+        padding: 8px;
+
+        input {
+            font-size: 18px;
+        }
+    }
+
+    .recommendations h2 {
+        font-size: 24px;
+    }
+
+    .recommendation_Box button {
+        width: 100%;
+        font-size: 16px;
     }
 }

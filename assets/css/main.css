@@ -6,6 +6,8 @@ footer {
   align-items: center;
   flex-shrink: 0; /* Prevent the footer from shrinking */
   margin-top: 3rem;
+  text-align: center;
+  padding: 10px 0;
 }
 
 @media (max-width: 600px) {
@@ -18,12 +20,14 @@ footer {
 html,
 body {
   height: 100%;
-  margin: 0;
   background-color: #FEFAE0;
   font-family: sans-serif;
 }
 
 body {
+  margin: 0;
+  padding: 0;
+  list-style: none;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -43,14 +47,6 @@ header .navbar {
   padding: 20px 0;
   margin: 0 1rem;
   position: relative;
-}
-header .hamburger {
-  display: none;
-  background: none;
-  border: none;
-  cursor: pointer;
-  outline: none;
-  font-size: 24px;
 }
 header .nav-items {
   display: flex;
@@ -117,7 +113,8 @@ main {
   align-items: center;
 }
 .recommendations .recommendation_Box button {
-  width: 690px;
+  width: 90%;
+  max-width: 690px;
   height: auto;
   margin: 10px 0;
   background-color: #E9EDC9;
@@ -148,45 +145,63 @@ main {
   margin-right: 10px;
 }
 
-@media (max-width: 900px) {
-  header .navbar .hamburger {
-    display: block;
-  }
-  header .navbar .nav-items {
-    display: none;
+/* Media Queries */
+@media (max-width: 768px) {
+  header .navbar {
     flex-direction: column;
-    width: 100%;
-    background-color: #E9EDC9;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    padding: 20px;
-    z-index: 1000;
-    overflow-y: auto;
+    align-items: center;
   }
-  header .navbar .nav-items .nav-item {
-    padding: 20px 0;
-    text-align: center;
-    border: none;
+  header .nav-items {
+    flex-direction: column;
+    align-items: center;
   }
-  header .navbar.show .nav-items {
-    display: flex;
-  }
-  header .navbar.show .hamburger {
-    display: flex;
+  header .nav-item {
+    padding: 10px 0;
+    font-size: 20px;
   }
   header .search_Field {
-    width: 90%;
+    width: 80%;
     padding: 10px;
   }
   header .search_Field input {
-    font-size: 16px;
-    margin: 5px 10px;
+    font-size: 20px;
   }
-  .recommendations .recommendation_Box button {
+  .recommendations h2 {
+    font-size: 28px;
+  }
+  .recommendation_Box button {
+    width: 95%;
+    font-size: 18px;
+  }
+}
+@media (max-width: 480px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+  }
+  .nav-items {
+    flex-direction: column;
+    align-items: center;
+  }
+  .nav-items .nav-item {
+    padding: 10px 0;
+    font-size: 18px;
+  }
+  .nav-items .nav-item:nth-child(n+2) {
+    border-left: none;
+  }
+  .search_Field {
     width: 90%;
+    padding: 8px;
+  }
+  .search_Field input {
+    font-size: 18px;
+  }
+  .recommendations h2 {
+    font-size: 24px;
+  }
+  .recommendation_Box button {
+    width: 100%;
     font-size: 16px;
   }
 }/*# sourceMappingURL=main.css.map */
