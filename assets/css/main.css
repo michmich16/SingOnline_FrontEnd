@@ -42,54 +42,6 @@
   margin-right: 10px;
 }
 
-footer {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  height: auto;
-  font-size: 22px;
-  color: #D4A373;
-  background-color: #E9EDC9;
-  justify-content: center;
-  align-items: center;
-  flex-shrink: 0; /* Prevent the footer from shrinking */
-  margin-top: 3rem;
-  text-align: center; /* Center the footer text for better appearance */
-  padding: 10px 0; /* Add padding to the footer */
-}
-
-@media (max-width: 600px) {
-  footer {
-    height: 80px; /* Slightly smaller height for mobile */
-    font-size: 14px; /* Adjust font size for better readability on small screens */
-    padding: 10px; /* Add some padding for better touch targets */
-  }
-}
-main ul {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #D4A373;
-  padding: 0;
-  font-size: 24px;
-}
-
-html,
-body {
-  height: 100%;
-  background-color: #FEFAE0;
-  font-family: sans-serif;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  background-color: #FEFAE0;
-}
-
 header {
   display: flex;
   flex-direction: column;
@@ -140,6 +92,54 @@ header .search_Field input {
   background: transparent;
   border: none;
   outline: none;
+}
+
+footer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  height: auto;
+  font-size: 22px;
+  color: #D4A373;
+  background-color: #E9EDC9;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0; /* Prevent the footer from shrinking */
+  margin-top: 3rem;
+  text-align: center; /* Center the footer text for better appearance */
+  padding: 10px 0; /* Add padding to the footer */
+}
+
+@media (max-width: 600px) {
+  footer {
+    height: 80px; /* Slightly smaller height for mobile */
+    font-size: 14px; /* Adjust font size for better readability on small screens */
+    padding: 10px; /* Add some padding for better touch targets */
+  }
+}
+main ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #D4A373;
+  padding: 0;
+  font-size: 24px;
+}
+
+html,
+body {
+  height: 100%;
+  background-color: #FEFAE0;
+  font-family: sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #FEFAE0;
 }
 
 main {
