@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function() {
     if (aboutUsButton) {
         aboutUsButton.addEventListener("click", function() {
             console.log("About Us button clicked");
-            clearMainContent();
+            clearAllContent();
             displayAboutUsContent();
         });
     } else {
@@ -132,6 +132,10 @@ document.addEventListener("DOMContentLoaded", function() {
         } else {
             console.log("No songs available");
         }
+    }
+
+    function clearAllContent() {
+        document.querySelector('main').innerHTML ='';
     }
 
     // Function to clear main content

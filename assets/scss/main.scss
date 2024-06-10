@@ -5,12 +5,13 @@
 @use 'variables' as vars;
 
 // mixin here
+//reset li
 @mixin reset-list {
     margin: 0;
     padding: 0;
     list-style: none;
 }
-
+//make it center
 @mixin mid-adjustment {
     display: flex;
     flex-direction: column;
@@ -63,13 +64,6 @@ header {
         }
     }
 
-    &.show .nav-items {
-        display: flex;
-    }
-
-    &.show .hamburger {
-        display: none;
-    }
 
     .search_Field {
         display: flex;

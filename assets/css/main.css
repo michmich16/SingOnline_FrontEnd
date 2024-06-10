@@ -69,6 +69,8 @@ main ul {
   justify-content: center;
   align-items: center;
   color: #D4A373;
+  padding: 0;
+  font-size: 24px;
 }
 
 html,
@@ -116,12 +118,6 @@ header .nav-items .nav-item {
   padding: 0 30px;
   align-items: center;
   color: #D4A373;
-}
-header.show .nav-items {
-  display: flex;
-}
-header.show .hamburger {
-  display: none;
 }
 header .search_Field {
   display: flex;
