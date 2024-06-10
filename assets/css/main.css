@@ -64,6 +64,13 @@ footer {
     padding: 10px; /* Add some padding for better touch targets */
   }
 }
+main ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #D4A373;
+}
+
 html,
 body {
   height: 100%;

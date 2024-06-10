@@ -38,10 +38,10 @@ document.addEventListener("DOMContentLoaded", function() {
     // Function to display "About Us" content
     function displayAboutUsContent() {
         const mainContent = document.querySelector('main');
-        const paragraph1 = document.createElement('li');
+        const paragraph1 = document.createElement('ul');
         paragraph1.textContent = "We are Sing Online";
-        const paragraph2 = document.createElement('li');
-        paragraph2.textContent = "This is made by us too";
+        const paragraph2 = document.createElement('ul');
+        paragraph2.textContent = "This is made by us";
         mainContent.appendChild(paragraph1);
         mainContent.appendChild(paragraph2);
     }
