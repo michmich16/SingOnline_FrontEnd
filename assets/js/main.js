@@ -2,28 +2,31 @@ document.addEventListener("DOMContentLoaded", function() {
     console.log("DOM fully loaded and parsed");
 
     const homeButton = document.querySelector(".nav-item:first-child");
+    const showAllSongsButton = document.getElementById("showAllSongsButton");
+    const aboutUsButton = document.getElementById("AboutUsButton");
+    const searchInput = document.getElementById('searchInput');
+
+    let allSongs = []; // To store all songs fetched from the API initially
 
     if (homeButton) {
         homeButton.addEventListener("click", function() {
             console.log("Home button clicked");
-            window.location.href = "index.html"; // Change "index.html" to the actual filename of your first page
+            window.location.href = "index.html";
         });
     } else {
         console.error("Home button not found");
     }
 
-    const showAllSongsButton = document.getElementById("showAllSongsButton");
-
     if (showAllSongsButton) {
         showAllSongsButton.addEventListener("click", function() {
             console.log("Show All button clicked");
+            clearMainContent(); // Clear the main content first
             displayAllSongs();
         });
     } else {
         console.error("Show All button not found");
     }
-
-    const aboutUsButton = document.getElementById("AboutUsButton");
+    
 
     if (aboutUsButton) {
         aboutUsButton.addEventListener("click", function() {
@@ -35,18 +38,18 @@ document.addEventListener("DOMContentLoaded", function() {
         console.error("About Us button not found");
     }
 
-    // Function to display "About Us" content
-    function displayAboutUsContent() {
-        const mainContent = document.querySelector('main');
-        const paragraph1 = document.createElement('ul');
-        paragraph1.textContent = "We are Sing Online";
-        const paragraph2 = document.createElement('ul');
-        paragraph2.textContent = "This is made by us";
-        mainContent.appendChild(paragraph1);
-        mainContent.appendChild(paragraph2);
+    if (searchInput) {
+        searchInput.addEventListener('input', function() {
+            const query = searchInput.value.trim().toLowerCase();
+            if (query.length > 0) {
+                const filteredSongs = allSongs.filter(song => song.title.toLowerCase().includes(query));
+                displayResults(filteredSongs);
+            } else {
+                displayRandomSongs();
+            }
+        });
     }
 
-    // Function to fetch data from API
     async function fetchDataFromApi() {
         const apiUrl = "https://gxxdmpccinfzavamuyix.supabase.co/rest/v1/songs";
         const apiKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imd4eGRtcGNjaW5memF2YW11eWl4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTQzODU5MjgsImV4cCI6MjAyOTk2MTkyOH0.Cd-1uPWhRaVK9F5Iu0GlRy8HRK5KF749T4ePOV6wTEA";
@@ -73,72 +76,53 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    // Function to display all songs
+    function displayResults(songs) {
+        const recommendationBox = document.getElementById("recommendationBox");
+        recommendationBox.innerHTML = ''; // Clear existing content
+
+        if (songs.length === 0) {
+            recommendationBox.innerHTML = '<p>No results found.</p>';
+            return;
+        }
+
+        songs.forEach(song => {
+            const songElement = document.createElement("button");
+            songElement.type = "button";
+            songElement.innerHTML = `
+                <h3>${song.title}</h3>
+                <li>
+                    <p>${song.artist}</p>
+                    <p>${song.album}</p>
+                </li>
+            `;
+            songElement.addEventListener("click", () => displayLyrics(song));
+            recommendationBox.appendChild(songElement);
+        });
+    }
+
     async function displayAllSongs() {
         clearMainContent(); // Clear the main content first
-        const songs = await fetchDataFromApi();
+        displayResults(allSongs);
+    }
 
-        if (songs && songs.length > 0) {
-            const recommendationBox = document.getElementById("recommendationBox");
-            recommendationBox.innerHTML = ''; // Clear existing content
-
-            songs.forEach(song => {
-                const songElement = document.createElement("button");
-                songElement.type = "button";
-                songElement.innerHTML = `
-                    <h3>${song.title}</h3>
-                    <li>
-                        <p>${song.artist}</p>
-                        <p>${song.album}</p>
-                    </li>
-                `;
-                songElement.addEventListener("click", () => displayLyrics(song));
-                recommendationBox.appendChild(songElement);
-            });
+    async function displayRandomSongs() {
+        if (allSongs && allSongs.length > 0) {
+            const randomSongs = getRandomSongs(allSongs, 5);
+            displayResults(randomSongs);
         } else {
             console.log("No songs available");
         }
     }
 
-    // Function to get random songs
     function getRandomSongs(songs, count) {
         const shuffled = songs.sort(() => 0.5 - Math.random());
         return shuffled.slice(0, count);
-    }
-
-    // Function to display random songs
-    async function displayRandomSongs() {
-        const songs = await fetchDataFromApi();
-
-        if (songs && songs.length > 0) {
-            const randomSongs = getRandomSongs(songs, 5);
-            const recommendationBox = document.getElementById("recommendationBox");
-
-            recommendationBox.innerHTML = ''; // Clear existing content
-
-            randomSongs.forEach(song => {
-                const songElement = document.createElement("button");
-                songElement.type = "button";
-                songElement.innerHTML = `
-                    <h3>${song.title}</h3>
-                    <li>
-                        <p>${song.artist}</p>
-                        <p>${song.album}</p>
-                    </li>
-                `;
-                songElement.addEventListener("click", () => displayLyrics(song));
-                recommendationBox.appendChild(songElement);
-            });
-        } else {
-            console.log("No songs available");
-        }
     }
 
     function clearAllContent() {
         document.querySelector('main').innerHTML ='';
     }
 
-    // Function to clear main content
     function clearMainContent() {
         document.querySelector('main').innerHTML = `
             <div class="recommendations">
@@ -147,7 +131,6 @@ document.addEventListener("DOMContentLoaded", function() {
             </div>`;
     }
 
-    // Function to display lyrics
     async function displayLyrics(song) {
         clearMainContent();
 
@@ -161,8 +144,20 @@ document.addEventListener("DOMContentLoaded", function() {
         mainContent.appendChild(lyricsElement);
     }
 
-    // Call displayRandomSongs to fetch and display the songs when the page loads
-    displayRandomSongs();
+    async function init() {
+        allSongs = await fetchDataFromApi(); // Fetch all songs initially and store them locally
+        displayRandomSongs(); // Call displayRandomSongs to fetch and display the songs when the page loads
+    }
 
-    // Function to reload the page
+    init(); // Initialize the app
+
+    function displayAboutUsContent() {
+        const mainContent = document.querySelector('main');
+        const paragraph1 = document.createElement('ul');
+        paragraph1.textContent = "We are Sing Online";
+        const paragraph2 = document.createElement('ul');
+        paragraph2.textContent = "This is made by us";
+        mainContent.appendChild(paragraph1);
+        mainContent.appendChild(paragraph2);
+    }
 });
