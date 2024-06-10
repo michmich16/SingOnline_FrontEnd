@@ -1,15 +1,23 @@
 @use 'variables' as vars;
 
+@mixin footer-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+  
+
 footer {
-    height: 100px;
+    @include footer-grid;
+    height: auto;
+    font-size: 22px;
+    color: vars.$dark-brown;
     background-color: vars.$light-green;
-    display: flex;
     justify-content: center;
     align-items: center;
     flex-shrink: 0; /* Prevent the footer from shrinking */
     margin-top: 3rem;
-    text-align: center; // Center the footer text for better appearance
-    padding: 10px 0; // Add padding to the footer
+    text-align: center; /* Center the footer text for better appearance */
+    padding: 10px 0; /* Add padding to the footer */
 }
 
 @media (max-width: 600px) {
@@ -19,3 +27,4 @@ footer {
         padding: 10px; /* Add some padding for better touch targets */
     }
 }
+

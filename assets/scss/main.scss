@@ -1,6 +1,7 @@
 // import variables here
 @use 'songcards';
 @use 'stylefooter';
+@use 'styleaboutus';
 @use 'variables' as vars;
 
 // mixin here
@@ -8,6 +9,12 @@
     margin: 0;
     padding: 0;
     list-style: none;
+}
+
+@mixin mid-adjustment {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 html,
@@ -26,9 +33,7 @@ body {
 }
 
 header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    @include mid-adjustment;
 
     .navbar {
         display: flex;
@@ -115,14 +120,11 @@ main {
     // Tablet
     header {
         .navbar {
-            flex-direction: column;
-            align-items: center;
-
+            @include mid-adjustment;
         }
 
         .nav-items {
-            flex-direction: column;
-            align-items: center;
+            @include mid-adjustment;
         }
 
         .nav-item {
@@ -155,13 +157,11 @@ main {
 
     // Mobile
     .navbar {
-        flex-direction: column;
-        align-items: center;
+        @include mid-adjustment;
     }
 
     .nav-items {
-        flex-direction: column;
-        align-items: center;
+        @include mid-adjustment;
 
 
         .nav-item {

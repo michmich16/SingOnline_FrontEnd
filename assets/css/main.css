@@ -43,15 +43,18 @@
 }
 
 footer {
-  height: 100px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  height: auto;
+  font-size: 22px;
+  color: #D4A373;
   background-color: #E9EDC9;
-  display: flex;
   justify-content: center;
   align-items: center;
   flex-shrink: 0; /* Prevent the footer from shrinking */
   margin-top: 3rem;
-  text-align: center;
-  padding: 10px 0;
+  text-align: center; /* Center the footer text for better appearance */
+  padding: 10px 0; /* Add padding to the footer */
 }
 
 @media (max-width: 600px) {
@@ -152,10 +155,12 @@ main span p {
 /* Media Queries */
 @media (max-width: 768px) {
   header .navbar {
+    display: flex;
     flex-direction: column;
     align-items: center;
   }
   header .nav-items {
+    display: flex;
     flex-direction: column;
     align-items: center;
   }
@@ -180,10 +185,12 @@ main span p {
 }
 @media (max-width: 480px) {
   .navbar {
+    display: flex;
     flex-direction: column;
     align-items: center;
   }
   .nav-items {
+    display: flex;
     flex-direction: column;
     align-items: center;
   }

@@ -23,6 +23,29 @@ document.addEventListener("DOMContentLoaded", function() {
         console.error("Show All button not found");
     }
 
+    const aboutUsButton = document.getElementById("AboutUsButton");
+
+    if (aboutUsButton) {
+        aboutUsButton.addEventListener("click", function() {
+            console.log("About Us button clicked");
+            clearMainContent();
+            displayAboutUsContent();
+        });
+    } else {
+        console.error("About Us button not found");
+    }
+
+    // Function to display "About Us" content
+    function displayAboutUsContent() {
+        const mainContent = document.querySelector('main');
+        const paragraph1 = document.createElement('li');
+        paragraph1.textContent = "We are Sing Online";
+        const paragraph2 = document.createElement('li');
+        paragraph2.textContent = "This is made by us too";
+        mainContent.appendChild(paragraph1);
+        mainContent.appendChild(paragraph2);
+    }
+
     // Function to fetch data from API
     async function fetchDataFromApi() {
         const apiUrl = "https://gxxdmpccinfzavamuyix.supabase.co/rest/v1/songs";
