@@ -1,4 +1,5 @@
 // import variables here
+@use 'songcards';
 @use 'stylefooter';
 @use 'variables' as vars;
 
@@ -104,58 +105,7 @@ main {
     }
 }
 
-.recommendations {
-    h2 {
-        display: flex;
-        justify-content: center;
-        color: vars.$dark-brown;
-        font-size: 36px;
-    }
 
-    .recommendation_Box {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-        button {
-            width: 90%; // Adjust width for responsiveness
-            max-width: 690px; // Ensure it doesn't exceed the original width
-            height: auto;
-            margin: 10px 0;
-            background-color: vars.$light-green;
-            color: vars.$dark-brown;
-            border: none;
-            cursor: pointer;
-            outline: vars.$dark-green solid 3px;
-            font-size: 20px;
-            text-align: left;
-            padding: 10px;
-
-            .song-details {
-                display: none;
-            }
-
-            &:hover .song-details {
-                display: block;
-            }
-
-            h3 {
-                font-weight: 100;
-                margin-top: 0;
-            }
-
-            li {
-                list-style: none;
-            }
-
-            #artistName,
-            #albumTitle {
-                display: inline;
-                margin-right: 10px;
-            }
-        }
-    }
-}
 
 
 
